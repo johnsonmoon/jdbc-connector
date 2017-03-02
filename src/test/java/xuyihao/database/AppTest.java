@@ -16,4 +16,11 @@ public class AppTest extends TestCase {
 		App.oracleConnectionTest();
 	}
 
+	public void test114OracleConnection(){
+		App.testOracleConnection();
+	}
+
+	public void testWuHanOracleQuery(){
+		App.testWuHanOracle();
+	}
 }
