@@ -1,13 +1,13 @@
-package xuyihao.database;
+package com.github.johnsonmoon;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.sql.Connection;
 
-import xuyihao.database.jdbc.DBUtils;
-import xuyihao.database.jdbc.entity.Row;
-import xuyihao.database.jdbc.entity.Table;
+import com.github.johnsonmoon.jdbc.JdbConnector;
+import com.github.johnsonmoon.jdbc.entity.Row;
+import com.github.johnsonmoon.jdbc.entity.Table;
 
 /**
  * 
@@ -17,22 +17,22 @@ public class App {
 	private static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
 	public static void testOracleConnection(){
-		Connection connection = DBUtils.createConnection(DBUtils.DBCODE_ORACLE, "10.1.10.114", 1521, "orcl", "system", "system");
-		Table table = DBUtils.query(connection, "SELECT  * from v$parameter");
+		Connection connection = JdbConnector.createConnection(JdbConnector.DBCODE_ORACLE, "10.1.10.114", 1521, "orcl", "system", "system");
+		Table table = JdbConnector.query(connection, "SELECT  * from v$parameter");
 		output(table.toString());
 	}
 
 	public static void mysqlConnectionTest() {
-		Connection connection = DBUtils.createConnection(DBUtils.DBCODE_MYSQL, "127.0.0.1", 3306, "EBTest", "root",
+		Connection connection = JdbConnector.createConnection(JdbConnector.DBCODE_MYSQL, "127.0.0.1", 3306, "EBTest", "root",
 				"johnsonmoon");
-		Table table = DBUtils.query(connection, "show tables");
+		Table table = JdbConnector.query(connection, "show tables");
 		output(table.toString());
 	}
 
 	public static void oracleConnectionTest() {
-		Connection connection = DBUtils.createConnection(DBUtils.DBCODE_ORACLE, "10.1.50.104", 1521, "orcl", "SYSTEM",
+		Connection connection = JdbConnector.createConnection(JdbConnector.DBCODE_ORACLE, "10.1.50.104", 1521, "orcl", "SYSTEM",
 				"PassW0rd");
-		Table table = DBUtils.query(connection, "SELECT  * from v$parameter");
+		Table table = JdbConnector.query(connection, "SELECT  * from v$parameter");
 		output(table.toString());
 	}
 
@@ -47,8 +47,8 @@ public class App {
 	}
 
 	public static void testWuHanOracle(){
-		Connection connection = DBUtils.createConnection(DBUtils.DBCODE_ORACLE, "10.1.50.69", 1521, "orcl", "system", "system");
-		Table table = DBUtils.query(connection, "select * from carrier.abt_alert where rownum <= " + "10");
+		Connection connection = JdbConnector.createConnection(JdbConnector.DBCODE_ORACLE, "10.1.50.69", 1521, "orcl", "system", "system");
+		Table table = JdbConnector.query(connection, "select * from carrier.abt_alert where rownum <= " + "10");
 		for(Row row : table) {
 			output(getRowValue(row, "SITECODE"));
 			output(getRowValue(row, "ENTITY_ID"));

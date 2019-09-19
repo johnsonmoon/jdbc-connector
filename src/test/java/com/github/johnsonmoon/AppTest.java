@@ -1,4 +1,4 @@
-package xuyihao.database;
+package com.github.johnsonmoon;
 
 import junit.framework.TestCase;
 

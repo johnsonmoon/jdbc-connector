@@ -1,4 +1,4 @@
-package xuyihao.database.jdbc.entity;
+package com.github.johnsonmoon.jdbc.entity;
 
 import java.util.Arrays;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package xuyihao.database.jdbc;
+package com.github.johnsonmoon.jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,14 +6,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import xuyihao.database.jdbc.entity.Table;
+import com.github.johnsonmoon.jdbc.entity.Table;
 
 /**
  * 数据库工具
  * 
  * @Author Xuyh created at 2016年10月8日 下午4:03:13
  */
-public class DBUtils {
+public class JdbConnector {
 	/**
 	 * 数据库类型识别码
 	 */
